@@ -66,25 +66,33 @@ def get_round_winner(p_choice, c_choice):
 #               "Paper" if given "p"
 #               "Scissors" if given "s"
 def get_full_move(shortmove):
-    return 1
+    if (p_choice == "r") or (c_choice == "r"):
+        return "Rock"
+    elif (p_choice == "p") or (c_choice == "p"):
+        return "Paper"
+    elif (p_choice == "s") or (c_choice == "s"):
+        return "Scissors"
 
 #function name: print_score
 #   arguments: player score, computer score, number of ties
 #   purpose: prints the scoreboard
 #   returns: none
 def print_score(pscore, cscore, ties):
-    return 1
+    pscore = 0
+    cscore = 0
+    ties = 0
+    print(pscore)
+    print(cscore)
+    print(ties)
+    return "The score is Player 1 {}, Player 2 {}, and {} ties.".format(pscore,cscore,ties)
 
-#function name: rps
-#   arguments: none
-#   purpose: the main game loop.  This should be the longest, using
-#               all the other functions to create RPS
-#   returns: none
+# #function name: rps
+# #   arguments: none
+# #   purpose: the main game loop.  This should be the longest, using
+# #               all the other functions to create RPS
+# #   returns: none
 def rps():
-    print(get_rounds())
-    print(get_p1_move())
-    print(get_comp_move())
-    print(get_round_winner("r","p"))
+    return 1
 
 #function name: tests
 #   arguments: none
