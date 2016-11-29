@@ -3,11 +3,11 @@ import random
 def get_p1_move():
     while True:
         p_choice = input("rock, paper or scissors? ")
-        if p_choice == "rock" or "Rock":
+        if p_choice == "rock":
             return "r"
-        elif p_choice == "paper" or "Paper":
+        elif p_choice == "paper":
             return "p"
-        elif p_choice == "scissors" or "Scissors":
+        elif p_choice == "scissors":
             return "s"
         else:
             print("That was invalid, Choose Again")
@@ -22,10 +22,8 @@ def get_comp_move():
         return "s"
 
 def get_rounds():
-    while True:
-        rounds = int(input("How many rounds would you like to play? (between 1 and 9): "))
-        if rounds <= 9 and rounds >=1:
-            return rounds
+    rounds = int(input("How many rounds would you like to play? (between 1 and 9): "))
+    return rounds
 
 def get_round_winner(p_choice, c_choice):
     if p_choice == c_choice:
@@ -52,7 +50,7 @@ def get_full_move(shortmove):
         return "Scissors"
 
 def print_score(pscore, cscore, ties):
-    return "The score is Player 1: {} wins, Computer: {} wins, and {} ties.".format(pscore,cscore,ties)
+    return "The score is Player 1: {}, Computer: {}, and {} ties.".format(pscore,cscore,ties)
 
 def rps():
     print("Welcome to the OG's Rock, Paper, Scissors!")
@@ -82,11 +80,8 @@ def rps():
         print(print_score(pscore,cscore,ties))
         
         print("--------------------------")
-    if pscore > cscore:
-        print("The Player won the game!")
-    elif cscore > pscore:
-        print("The Computer won the game!")
-    else:
-        print("It's a tie")
+    print(print_score(pscore,cscore,ties))
+
+
 
 rps()
