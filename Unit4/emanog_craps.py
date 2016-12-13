@@ -1,5 +1,8 @@
 import random
 
+bank = 2000 
+house = 5000
+
 # def game_info():
 
 def game_rules():
@@ -28,7 +31,7 @@ def game_rules():
 def get_player_bet():
     while True:
         bet = int(input("How much would you like to bet?: "))
-        if bet >= 50 and bet <= 100:
+        if bet >= 100 and bet <= 1000 :
             return ("Try Again")
     
 def dice_roll():
@@ -55,7 +58,15 @@ def first_roll(dice_sum):
 #     else:
 #         print ("It is time for Phase Three: Point Number")
 
-def point_number():
+#function name: point_round()
+#   arguments: point_number 
+#   purpose: to reroll the dice, to get the sum of the rerolled dice, and tell who won the roll(round) overall
+#   returns: the sum of the rerolled dice, and tells who won the roll(round) overall
+# point number
+# if the roll is a 7 lose round
+
+def point_round(point_number):
+    roll = dice_roll()
     
 
 def craps():
@@ -67,6 +78,5 @@ def craps():
     
     dice_sum = first_roll(dice_roll())
     
-    bank = get_or_lose_money(dice_sum,bet)
     
 craps()
