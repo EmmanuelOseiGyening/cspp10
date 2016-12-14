@@ -1,13 +1,11 @@
 import random
 
-bank = 2000 
-house = 5000
 
 # def game_info():
 
 def game_rules():
     i = input("Do you know how to play Craps? [Yes or No]: ")
-    if i == "No" or  i == "no":
+    if i == "No" or  i == "no" or i == "NO":
         print(" ")
         print("Phase 1: Before The Roll ")
         print("In this phase, the player has to make an accepted bet before the dice are rolled.")
@@ -24,16 +22,18 @@ def game_rules():
         print("If the player rolls a 7 first, they lose their bet, and the round ends.")
         print("If the player rolls any other number, they keep rolling in Phase 3.")
         print(" ")
-    elif i == "Yes" or i == "yes":
+    elif i == "Yes" or i == "yes" or i == "YES":
         print("You may continue to the game!")
         print(" ")
     
 def get_player_bet():
+    print("You have $2000 in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100. ")
     while True:
         bet = int(input("How much would you like to bet?: "))
         if bet >= 100 and bet <= 1000 :
             return ("Try Again")
     
+   
 def dice_roll():
     dice1 = random.randint(1,6)
     dice2 = random.randint(1,6)
@@ -44,19 +44,21 @@ def dice_roll():
 def first_roll(dice_sum):
     if (dice_sum == 7) or (dice_sum == 11):
         print ("You won the roll")
+        return ("Win")
     elif (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
         print ("You lose the roll")
+        return ("Lose")
     else:
         return dice_sum
+    
+def win_or_lose(dice_sum,bank,bet):
+    if dice_sum == "Win":
+        bank = bank + bet
+        return (bank)
+    elif dice_sum == "Lose":
+        bank = bank - bet
+        return (bank)
 
-# def get_or_lose_money(bet,dice_sum,bank):
-#     if dice_sum == 7 or dice_sum == 11:
-        
-#     elif dice_sum == 2 or dice_sum == 3 or dice_sum == 12:
-#         bank = bet - bet
-#         return bank
-#     else:
-#         print ("It is time for Phase Three: Point Number")
 
 #function name: point_round()
 #   arguments: point_number 
@@ -70,6 +72,10 @@ def point_round(point_number):
     
 
 def craps():
+    
+    bank = 2000
+    house = 5000
+    
     print ("Welcome to The Wonderful Game of Craps")
     print(" ")
     game_rules()
@@ -77,6 +83,8 @@ def craps():
     bet = get_player_bet()
     
     dice_sum = first_roll(dice_roll())
+    
+    bank = win_or_lose(dice_sum,bank,bet)
     
     
 craps()
