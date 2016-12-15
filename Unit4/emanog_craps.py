@@ -51,14 +51,6 @@ def first_roll(dice_sum):
     else:
         return dice_sum
     
-def win_or_lose(dice_sum,bank,bet):
-    if dice_sum == "Win":
-        bank = bank + bet
-        return (bank)
-    elif dice_sum == "Lose":
-        bank = bank - bet
-        return (bank)
-
 
 #function name: point_round()
 #   arguments: point_number 
@@ -83,8 +75,13 @@ def craps():
     bet = get_player_bet()
     
     dice_sum = first_roll(dice_roll())
-    
-    bank = win_or_lose(dice_sum,bank,bet)
+    if (dice_sum == 7) or (dice_sum == 11):
+        bank = bank + bet
+        print ("Now you have {} in your bank.".format(bank))
+    elif (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
+        bank = bank - bet
+        print(" Now you have {} in your bank.".format(bank))
+
     
     
 craps()
