@@ -42,10 +42,11 @@ def dice_roll():
     return dice_sum
 
 def first_roll(dice_sum):
-    if (dice_sum == 7) or (dice_sum == 11):
+    x = dice_sum
+    if (x == 7) or (x == 11):
         print ("You won the roll")
         return ("Win")
-    elif (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
+    elif (x == 2) or (x == 3) or (x == 12):
         print ("You lose the roll")
         return ("Lose")
     else:
@@ -75,10 +76,11 @@ def craps():
     bet = get_player_bet()
     
     dice_sum = first_roll(dice_roll())
-    if (dice_sum == 7) or (dice_sum == 11):
+    x = dice_sum
+    if x == "Win":
         bank = bank + bet
         print ("Now you have {} in your bank.".format(bank))
-    elif (dice_sum == 2) or (dice_sum == 3) or (dice_sum == 12):
+    elif x == "Lose":
         bank = bank - bet
         print(" Now you have {} in your bank.".format(bank))
 
