@@ -32,7 +32,7 @@ def get_player_bet():
         bet = int(input("How much would you like to bet?: "))
         b = bet 
         if b >= 100 and b <= 1000 :
-            return ("Accepted Bet")
+            return ("Accepted")
     
    
 def dice_roll():
@@ -61,10 +61,17 @@ def first_roll(dice_sum):
 # point number
 # if the roll is a 7 lose round
 
-def point_round(point_number):
-    roll = dice_roll()
-    
-
+def point_round(dice_sum):
+   pn_sum = dice_roll()
+   while True:
+        if pn_sum == dice_sum:
+            print ("You win the roll")
+            return pn_sum
+        elif pn_sum != dice_sum or pn_sum == 7:
+            print ("You lose the roll")
+            return pn_sum
+   
+   
 def craps():
     
     bank = 2000
@@ -85,6 +92,8 @@ def craps():
     elif x == "Lose":
         bank = bank - int(b)
         print(" Now you have {} in your bank.".format(bank))
+    
+    pn_sum = point_round(dice_sum)
 
     
     
