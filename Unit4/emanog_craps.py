@@ -32,7 +32,7 @@ def get_player_bet():
         bet = int(input("How much would you like to bet?: "))
         b = bet 
         if b >= 100 and b <= 1000 :
-            return ("Accepted")
+            return bet
     
    
 def dice_roll():
@@ -62,14 +62,18 @@ def first_roll(dice_sum):
 # if the roll is a 7 lose round
 
 def point_round(dice_sum):
-   pn_sum = dice_roll()
-   while True:
+    while True:
+        dice3 = random.randint(1,6)
+        dice4 = random.randint(1,6)
+        pn_sum = dice3 + dice4
+        pw = pn_sum
+        print ("Your point number rolls are {} and {}. The sum is {}".format(dice3,dice4,pn_sum))
         if pn_sum == dice_sum:
             print ("You win the roll")
-            return pn_sum
-        elif pn_sum != dice_sum or pn_sum == 7:
+            return ("W")
+        elif pn_sum == 7:
             print ("You lose the roll")
-            return pn_sum
+            return ("L")
    
    
 def craps():
@@ -84,16 +88,26 @@ def craps():
     bet = get_player_bet()
     
     dice_sum = first_roll(dice_roll())
-    x = dice_sum
-    b = bet
-    if x == "Win":
-        bank = bank + int(b)
-        print ("Now you have {} in your bank.".format(bank))
-    elif x == "Lose":
-        bank = bank - int(b)
-        print(" Now you have {} in your bank.".format(bank))
     
     pn_sum = point_round(dice_sum)
+    
+    x = dice_sum
+    b = bet
+    pw = pn_sum
+    if x == "Win":
+        bank = bank + b
+        print ("Now you have {} in your bank.".format(bank))
+    elif x == "Lose":
+        bank = bank - b
+        print(" Now you have {} in your bank.".format(bank))
+    elif pw == "W":
+        bank = bank + b
+        print ("Now you have {} in your bank.".format(bank))
+    elif pw == "L":
+        bank = bank - b
+        print ("Now you have {} in your bank.".format(bank))
+
+    
 
     
     
