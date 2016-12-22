@@ -26,8 +26,9 @@ def game_rules():
         print("You may continue to the game!")
         print(" ")
     
-def get_player_bet():
-    print("You have $2000 in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100. ")
+def get_player_bet(bank):
+    print("You have $2000 in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100. [This only applies to when you first start the game!] ")
+    print("You have {} in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100.".format(bank))
     while True:
         bet = int(input("How much would you like to bet?: "))
         b = bet 
@@ -79,33 +80,33 @@ def point_round(dice_sum):
 def craps():
     
     bank = 2000
-    house = 5000
     
     print ("Welcome to The Wonderful Game of Craps")
     print(" ")
     game_rules()
     
-    bet = get_player_bet()
+    while True:
+        bet = get_player_bet(bank)
     
-    dice_sum = first_roll(dice_roll())
+        dice_sum = first_roll(dice_roll())
     
-    pn_sum = point_round(dice_sum)
+        pn_sum = point_round(dice_sum)
     
-    x = dice_sum
-    b = bet
-    pw = pn_sum
-    if x == "Win":
-        bank = bank + b
-        print ("Now you have {} in your bank.".format(bank))
-    elif x == "Lose":
-        bank = bank - b
-        print(" Now you have {} in your bank.".format(bank))
-    elif pw == "W":
-        bank = bank + b
-        print ("Now you have {} in your bank.".format(bank))
-    elif pw == "L":
-        bank = bank - b
-        print ("Now you have {} in your bank.".format(bank))
+        x = dice_sum
+        b = bet
+        pw = pn_sum
+        if x == "Win":
+            bank = bank + b
+            print ("Now you have {} in your bank.".format(bank))
+        elif x == "Lose":
+            bank = bank - b
+            print(" Now you have {} in your bank.".format(bank))
+        elif pw == "W":
+            bank = bank + b
+            print ("Now you have {} in your bank.".format(bank))
+        elif pw == "L":
+            bank = bank - b
+            print ("You now have {} in your bank.".format(bank))
 
     
 
