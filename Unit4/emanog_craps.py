@@ -27,12 +27,11 @@ def game_rules():
         print(" ")
     
 def get_player_bet(bank):
-    print("You have $2000 in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100. [This only applies to when you first start the game!] ")
     print("You have {} in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100.".format(bank))
     while True:
         bet = int(input("How much would you like to bet?: "))
         b = bet 
-        if b >= 100 and b <= 1000 :
+        if b >= bank / 2 and b <= bank :
             return bet
     
    
@@ -54,16 +53,9 @@ def first_roll(dice_sum):
     else:
         return dice_sum
     
-
-#function name: point_round()
-#   arguments: point_number 
-#   purpose: to reroll the dice, to get the sum of the rerolled dice, and tell who won the roll(round) overall
-#   returns: the sum of the rerolled dice, and tells who won the roll(round) overall
-# point number
-# if the roll is a 7 lose round
-
 def point_round(dice_sum):
     while True:
+        print("You previously rolled {} which is a point number. Now we will have to do phase 3!".format(dice_sum))
         dice3 = random.randint(1,6)
         dice4 = random.randint(1,6)
         pn_sum = dice3 + dice4
@@ -97,16 +89,20 @@ def craps():
         pw = pn_sum
         if x == "Win":
             bank = bank + b
-            print ("Now you have {} in your bank.".format(bank))
+            print ("You now have {} in your bank.".format(bank))
+            print (" ")
         elif x == "Lose":
             bank = bank - b
-            print(" Now you have {} in your bank.".format(bank))
+            print("You now have {} in your bank.".format(bank))
+            print (" ")
         elif pw == "W":
             bank = bank + b
-            print ("Now you have {} in your bank.".format(bank))
+            print ("You now have {} in your bank.".format(bank))
+            print (" ")
         elif pw == "L":
             bank = bank - b
             print ("You now have {} in your bank.".format(bank))
+            print (" ")
 
     
 
