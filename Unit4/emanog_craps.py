@@ -27,11 +27,11 @@ def game_rules():
         print(" ")
     
 def get_player_bet(bank):
-    print("You have {} in your bank and can only bet up to half the amount you have in your bank each turn, and no less than $100.".format(bank))
+    print("You have ${} in your bank and can only bet up to half the amount you have in your bank each turn.".format(bank))
     while True:
         bet = int(input("How much would you like to bet?: "))
         b = bet 
-        if b >= bank / 2 and b <= bank :
+        if b >= 1 and b <= bank :
             return bet
     
    
@@ -77,7 +77,7 @@ def craps():
     print(" ")
     game_rules()
     
-    while True:
+    while bank > 0:
         bet = get_player_bet(bank)
     
         dice_sum = first_roll(dice_roll())
@@ -89,19 +89,19 @@ def craps():
         pw = pn_sum
         if x == "Win":
             bank = bank + b
-            print ("You now have {} in your bank.".format(bank))
+            print ("You now have ${} in your bank.".format(bank))
             print (" ")
         elif x == "Lose":
             bank = bank - b
-            print("You now have {} in your bank.".format(bank))
+            print("You now have ${} in your bank.".format(bank))
             print (" ")
         elif pw == "W":
             bank = bank + b
-            print ("You now have {} in your bank.".format(bank))
+            print ("You now have ${} in your bank.".format(bank))
             print (" ")
         elif pw == "L":
             bank = bank - b
-            print ("You now have {} in your bank.".format(bank))
+            print ("You now have ${} in your bank.".format(bank))
             print (" ")
 
     
