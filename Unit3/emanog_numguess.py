@@ -8,9 +8,9 @@ while guess != answer:
     guess = int(input("What number do you think it is? "))
     num_guess = num_guess + 1
     if guess > answer:
-        print("SORRY DAD The Number You Guessed is Too High and Wrong")
+        print("The Number You Guessed is Too High and Wrong")
     elif guess < answer:
-        print("SORRY DAD The Number You Guessed is Too Low and Wrong")
+        print("The Number You Guessed is Too Low and Wrong")
     elif guess == answer:
-        print("GOOD JOB DAD You Got It Right")
+        print("You Got It Right")
 print("You guessed the right number it was {}. It only took you {} tries.".format(answer,num_guess))
