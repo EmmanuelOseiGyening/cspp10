@@ -1,4 +1,4 @@
-# Tyler "Can't Code on his own" King worked with me
+# TylerKing worked with me
 
 num_list = []
 
