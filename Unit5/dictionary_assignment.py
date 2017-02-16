@@ -1,8 +1,6 @@
-import random
+from pprint import pprint
 
-dictionary = {
-    
-}
+dictionary = {}
 
 def add(dictionary):
     key = input ("What key would you like to add to the dictionary?: ")
@@ -13,11 +11,24 @@ def add(dictionary):
 def remove_key(dictionary):
     remove = input ("Which key would you like to remove from the dictionary?: ")
 
-    del dictionary[remove]
+    if remove in dictionary:
+        del dictionary[remove]
 
+def update(dictionary):
+   key = input ("What key do you want to add to the list?: ")
+   value = input ("What value do you want the key to have?: ")
+   
+   if key not in dictionary:
+        dictionary[key] = value
 
+def prettyprint(dictionary):
+    pprint(dictionary)
+
+def exit(dictionary):
+    print(dictionary)
 
 add(dictionary)
-print(dictionary)
 remove_key(dictionary)
-print(dictionary)    
+update(dictionary)
+prettyprint(dictionary)
+exit(dictionary)

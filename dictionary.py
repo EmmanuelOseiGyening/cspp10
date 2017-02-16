@@ -19,7 +19,7 @@ schedule = {
 }
 
 #Only checks if it exsists as a KEY (not value)
-if "E" in schedule:
+if "E" not in schedule:
     print ("e is in schedule")
 else:
     print ("is not in schedule")    
@@ -45,7 +45,7 @@ del schedule['D']
 
 
 
-add(dictionary)
-print(dictionary)
-remove_key(dictionary)
-print(dictionary)    
+# add(dictionary)
+# print(dictionary)
+# remove_key(dictionary)
+# print(dictionary)    
