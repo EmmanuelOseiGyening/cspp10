@@ -19,7 +19,7 @@ def update(dictionary):
    value = input ("What value do you want the key to have?: ")
    
    if key not in dictionary:
-        dictionary[key] = value
+       dictionary[key] = value
 
 def prettyprint(dictionary):
     pprint(dictionary)
@@ -27,8 +27,12 @@ def prettyprint(dictionary):
 def exit(dictionary):
     print(dictionary)
 
-add(dictionary)
-remove_key(dictionary)
-update(dictionary)
-prettyprint(dictionary)
-exit(dictionary)
+def dictionary()
+
+
+
+# add(dictionary)
+# remove_key(dictionary)
+# update(dictionary)
+# prettyprint(dictionary)
+# exit(dictionary)
